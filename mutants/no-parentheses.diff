@@ -1,0 +1,17 @@
+--- a/src/predicate.ts
++++ b/src/predicate.ts
+@@ -27,12 +27,12 @@
+ // Combinators that compose predicates
+ 
+ export const and = <T>(p1: Predicate<T>, p2: Predicate<T>): Predicate<T> => ({
+-  sql: `(${p1.sql}) AND (${p2.sql})`,
++  sql: `${p1.sql} AND ${p2.sql}`,
+   params: [...p1.params, ...p2.params],
+ });
+ 
+ export const not = <T>(p: Predicate<T>): Predicate<T> => ({
+-  sql: `NOT (${p.sql})`,
++  sql: `NOT ${p.sql}`,
+   params: p.params,
+ });
+ 
