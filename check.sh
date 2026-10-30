@@ -3,6 +3,8 @@
 # that every file in rejected/ fails with the error on its "// expects:" line,
 # and that the laws catch a predicate combinator that forgets its parentheses.
 set -euo pipefail
+# CI turns colors on; the checks below grep plain text.
+export NO_COLOR=1 FORCE_COLOR=0
 cd "$(dirname "$0")"
 
 [ -d node_modules ] || pnpm install --frozen-lockfile --silent
